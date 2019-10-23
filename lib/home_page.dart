@@ -77,7 +77,8 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: ToDoAppBar(
-          text: _tabToTitle(_currentTab),
+          texts: _tabs.map(_tabToTitle).toList(),
+          selected: _tabs.indexOf(_currentTab),
         ),
         body: PageView(
           controller: _pageController,
