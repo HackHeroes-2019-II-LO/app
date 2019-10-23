@@ -12,8 +12,8 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   static final List<HPTabType> _tabs = <HPTabType>[
     HPTabType.chatView,
+    HPTabType.discoverView,
     HPTabType.mapView,
-    HPTabType.discoverView
   ];
 
   HPTabType _currentTab = _tabs[0];

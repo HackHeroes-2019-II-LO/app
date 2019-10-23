@@ -13,10 +13,10 @@ String tabToTitle(HPTabType tab) {
   switch (tab) {
     case HPTabType.chatView:
       return 'Chat';
-    case HPTabType.mapView:
-      return 'Map';
     case HPTabType.discoverView:
       return 'Discover';
+    case HPTabType.mapView:
+      return 'Map';
     default:
       return null;
   }
@@ -26,10 +26,10 @@ IconData tabToIcon(HPTabType tab) {
   switch (tab) {
     case HPTabType.chatView:
       return Icons.chat;
-    case HPTabType.mapView:
-      return Icons.map;
     case HPTabType.discoverView:
       return Icons.explore;
+    case HPTabType.mapView:
+      return Icons.map;
     default:
       return null;
   }
@@ -39,10 +39,10 @@ Widget tabToPage(HPTabType tab) {
   switch (tab) {
     case HPTabType.chatView:
       return ChatView();
-    case HPTabType.mapView:
-      return MapView();
     case HPTabType.discoverView:
       return DiscoverView();
+    case HPTabType.mapView:
+      return MapView();
     default:
       return null;
   }
