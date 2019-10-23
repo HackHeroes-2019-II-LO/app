@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hack_heroes/bottom_nav.dart';
-import 'package:hack_heroes/app_bar.dart';
+import 'package:hack_heroes/widgets/bottom_nav.dart';
+import 'package:hack_heroes/widgets/app_bar.dart';
 import 'package:hack_heroes/types.dart';
 
 class HomePage extends StatefulWidget {

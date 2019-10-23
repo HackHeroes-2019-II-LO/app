@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hack_heroes/bottom_nav_item.dart';
+import 'package:hack_heroes/widgets/bottom_nav_item.dart';
 import 'package:hack_heroes/types.dart';
 
 class BottomNav extends StatelessWidget {

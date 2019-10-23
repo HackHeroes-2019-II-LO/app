@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hack_heroes/views/chat_view.dart';
+import 'package:hack_heroes/views/discover_view.dart';
+import 'package:hack_heroes/views/map_view.dart';
 
 enum HPTabType {
   chatView,
@@ -35,11 +38,11 @@ IconData tabToIcon(HPTabType tab) {
 Widget tabToPage(HPTabType tab) {
   switch (tab) {
     case HPTabType.chatView:
-      return Material(color: Colors.red);
+      return ChatView();
     case HPTabType.mapView:
-      return Material(color: Colors.green);
+      return MapView();
     case HPTabType.discoverView:
-      return Material(color: Colors.blue);
+      return DiscoverView();
     default:
       return null;
   }
