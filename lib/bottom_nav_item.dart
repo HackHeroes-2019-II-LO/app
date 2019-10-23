@@ -52,18 +52,30 @@ class BottomNavItem extends StatelessWidget {
                 AnimatedCrossFade(
                   firstChild: Icon(
                     iconData,
-                    color: Theme.of(context).textTheme.body1.color,
+                    color: Theme.of(context).textTheme.display1.color,
                   ),
                   secondChild: Icon(
                     iconData,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).textTheme.body1.color,
                   ),
                   duration: kThemeAnimationDuration,
                   crossFadeState: isActive
                       ? CrossFadeState.showSecond
                       : CrossFadeState.showFirst,
                 ),
-                Text(_tabToTitle(tab))
+                AnimatedCrossFade(
+                  firstChild: Text(
+                    _tabToTitle(tab),
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.display1.color,
+                    ),
+                  ),
+                  secondChild: Text(_tabToTitle(tab)),
+                  duration: kThemeAnimationDuration,
+                  crossFadeState: isActive
+                      ? CrossFadeState.showSecond
+                      : CrossFadeState.showFirst,
+                ),
               ],
             ),
           ),
