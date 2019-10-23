@@ -6,7 +6,9 @@ class ToDoAppBar extends AppBar {
     this.selected = 0,
     this.actions,
     this.leading,
-  }) : super(
+  })  : assert(texts != null),
+        assert(selected != null),
+        super(
           title: AnimatedSwitcher(
             child: Text(
               texts[selected],
