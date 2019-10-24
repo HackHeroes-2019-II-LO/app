@@ -3,6 +3,25 @@ import 'package:hack_heroes/views/chat_view.dart';
 import 'package:hack_heroes/views/discover_view.dart';
 import 'package:hack_heroes/views/map_view.dart';
 
+class AppRoutes {
+  static const String home = '/';
+  static const String conversation = '/conversation';
+}
+
+class Message {
+  final bool isOwned;
+  final String content;
+
+  const Message({@required this.isOwned, @required this.content});
+}
+
+class Conversation {
+  final String partner;
+  final List<Message> messages;
+
+  const Conversation({@required this.partner, @required this.messages});
+}
+
 enum HPTabType {
   chatView,
   mapView,
