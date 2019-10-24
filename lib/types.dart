@@ -6,6 +6,7 @@ import 'package:hack_heroes/views/map_view.dart';
 class AppRoutes {
   static const String home = '/';
   static const String conversation = '/conversation';
+  static const String settings = '/settings';
 }
 
 class Message {

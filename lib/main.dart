@@ -4,6 +4,7 @@ import 'package:hack_heroes/model.dart';
 import 'package:hack_heroes/theme_data.dart';
 import 'package:hack_heroes/types.dart';
 import 'package:hack_heroes/views/conversation_view.dart';
+import 'package:hack_heroes/views/settings_view.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 void main() => runApp(MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           routes: {
             AppRoutes.home: (context) => HomePage(),
             AppRoutes.conversation: (context) => ConversationView(),
+            AppRoutes.settings: (context) => SettingsView()
           },
         ),
       );

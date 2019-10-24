@@ -55,7 +55,8 @@ class _HomePageState extends State<HomePage>
           selected: _tabs.indexOf(_currentTab),
           leading: IconButton(
             icon: Icon(Icons.settings),
-            onPressed: () => null,
+            onPressed: () =>
+                Navigator.of(context).pushNamed(AppRoutes.settings),
           ),
         ),
         body: PageView(
