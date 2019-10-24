@@ -12,11 +12,11 @@ enum HPTabType {
 String tabToTitle(HPTabType tab) {
   switch (tab) {
     case HPTabType.chatView:
-      return 'Chat';
+      return 'Czat';
     case HPTabType.discoverView:
-      return 'Discover';
+      return 'Poznaj';
     case HPTabType.mapView:
-      return 'Map';
+      return 'Mapa';
     default:
       return null;
   }

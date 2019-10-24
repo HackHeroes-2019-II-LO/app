@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage>
   static final List<HPTabType> _tabs = <HPTabType>[
     HPTabType.chatView,
     HPTabType.discoverView,
-    HPTabType.mapView,
+    // HPTabType.mapView,
   ];
 
   HPTabType _currentTab = _tabs[0];
@@ -53,6 +53,10 @@ class _HomePageState extends State<HomePage>
         appBar: ToDoAppBar(
           texts: _tabs.map(tabToTitle).toList(),
           selected: _tabs.indexOf(_currentTab),
+          leading: IconButton(
+            icon: Icon(Icons.account_circle),
+            onPressed: () => null,
+          ),
         ),
         body: PageView(
           controller: _pageController,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hack_heroes/home_page.dart';
 import 'package:hack_heroes/theme_data.dart';
+import 'package:hack_heroes/views/conversation_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hack Heroes',
       theme: defaultTheme(context),
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/conversation': (context) => ConversationView(),
+      },
     );
   }
 }
