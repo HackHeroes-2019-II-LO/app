@@ -16,13 +16,16 @@ class ConversationView extends StatelessWidget {
         ),
       ),
       body: ScopedModelDescendant<AppModel>(
-        builder: (context, child, model) => ListView.builder(
-          itemBuilder: (context, index) => ListTile(
-            title: Text(model.convoWith(partner).messages[index].isOwned ? 'Ja' : partner),
-            subtitle: Text(model.convoWith(partner).messages[index].content),
-          ),
-          itemCount: model.convoWith(partner).messages.length,
-        ),
+        builder: (context, child, model) {
+          final convo = model.convoWith(partner);
+          return ListView.builder(
+            itemBuilder: (context, index) => ListTile(
+              title: Text(convo.messages[index].isOwned ? 'Ja' : partner),
+              subtitle: Text(convo.messages[index].content),
+            ),
+            itemCount: convo.messages.length,
+          );
+        },
       ),
     );
   }

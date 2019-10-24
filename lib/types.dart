@@ -18,8 +18,13 @@ class Message {
 class Conversation {
   final String partner;
   final List<Message> messages;
+  final DateTime lastTimestamp;
 
-  const Conversation({@required this.partner, @required this.messages});
+  const Conversation({
+    @required this.partner,
+    @required this.messages,
+    @required this.lastTimestamp,
+  });
 }
 
 enum HPTabType {

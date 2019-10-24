@@ -8,17 +8,34 @@ class AppModel extends Model {
     Conversation(
       partner: 'Osoba 1',
       messages: [
-        Message(isOwned: true, content: 'Cześć!'),
-        Message(isOwned: false, content: 'Hej'),
-        Message(isOwned: false, content: 'Test')
+        Message(
+          isOwned: true,
+          content: 'Cześć!',
+        ),
+        Message(
+          isOwned: false,
+          content: 'Hej',
+        ),
+        Message(
+          isOwned: false,
+          content: 'Bardzo długa wiadomość wysłana na potrzeby testu.',
+        )
       ],
+      lastTimestamp: DateTime.now().subtract(Duration(hours: 5)),
     ),
     Conversation(
       partner: 'Osoba 2',
       messages: [
-        Message(isOwned: false, content: 'Siemka!'),
-        Message(isOwned: true, content: 'Cześć! Co u ciebie?'),
+        Message(
+          isOwned: false,
+          content: 'Siemka!',
+        ),
+        Message(
+          isOwned: true,
+          content: 'Cześć! Co u ciebie?',
+        ),
       ],
+      lastTimestamp: DateTime.now().subtract(Duration(days: 2)),
     )
   ];
 

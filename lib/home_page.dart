@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage>
           texts: _tabs.map(tabToTitle).toList(),
           selected: _tabs.indexOf(_currentTab),
           leading: IconButton(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(Icons.settings),
             onPressed: () => null,
           ),
         ),
