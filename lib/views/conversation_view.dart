@@ -5,12 +5,14 @@ import 'package:hack_heroes/widgets/chat_bubble.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ConversationView extends StatelessWidget {
-  final _controller = TextEditingController();
+  final _textController = TextEditingController();
 
   void _send(BuildContext context) {
-    AppModel.of(context).addMessage(
-        ModalRoute.of(context).settings.arguments, _controller.text);
-    _controller.clear();
+    if (_textController.text.length > 0) {
+      AppModel.of(context).addMessage(
+          ModalRoute.of(context).settings.arguments, _textController.text);
+      _textController.clear();
+    }
   }
 
   @override
@@ -32,8 +34,9 @@ class ConversationView extends StatelessWidget {
               builder: (context, child, model) {
                 final convo = model.convoWith(partner);
                 return ListView.builder(
+                  reverse: true,
                   itemBuilder: (context, index) => ChatBubble(
-                    message: convo.messages[index],
+                    message: convo.messages[convo.messages.length - index - 1],
                   ),
                   itemCount: convo.messages.length,
                 );
@@ -46,7 +49,11 @@ class ConversationView extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8),
                   child: TextField(
-                    controller: _controller,
+                    controller: _textController,
+                    textInputAction: TextInputAction.go,
+                    keyboardType: TextInputType.text,
+                    maxLines: 1,
+                    onEditingComplete: () => _send(context),
                     style: TextStyle(fontSize: 16),
                     decoration: InputDecoration(
                       hintText: 'Aa',
@@ -72,10 +79,15 @@ class ConversationView extends StatelessWidget {
                   ),
                 ),
               ),
-              IconButton(
-                icon: Icon(Icons.send),
-                onPressed: () => _send(context),
-              )
+              AnimatedBuilder(
+                animation: _textController,
+                builder: (context, child) => IconButton(
+                  icon: Icon(Icons.send),
+                  onPressed: _textController.text.length > 0
+                      ? () => _send(context)
+                      : null,
+                ),
+              ),
             ],
           )
         ],
