@@ -28,6 +28,20 @@ class Conversation {
   });
 }
 
+class Person {
+  final int id;
+  final String name;
+  final String country;
+  final int age;
+
+  const Person({
+    @required this.id,
+    @required this.name,
+    @required this.country,
+    @required this.age,
+  });
+}
+
 enum HPTabType {
   chatView,
   mapView,
