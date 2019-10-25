@@ -56,6 +56,9 @@ class AppModel extends Model {
           ),
         );
 
+    _convos.firstWhere((conv) => conv.partner == partner).lastTimestamp =
+        DateTime.now();
+
     notifyListeners();
   }
 }

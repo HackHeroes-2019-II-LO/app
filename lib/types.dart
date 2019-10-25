@@ -19,9 +19,9 @@ class Message {
 class Conversation {
   final String partner;
   final List<Message> messages;
-  final DateTime lastTimestamp;
+  DateTime lastTimestamp;
 
-  const Conversation({
+  Conversation({
     @required this.partner,
     @required this.messages,
     @required this.lastTimestamp,
