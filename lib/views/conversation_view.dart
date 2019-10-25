@@ -5,6 +5,14 @@ import 'package:hack_heroes/widgets/chat_bubble.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ConversationView extends StatelessWidget {
+  final _controller = TextEditingController();
+
+  void _send(BuildContext context) {
+    AppModel.of(context).addMessage(
+        ModalRoute.of(context).settings.arguments, _controller.text);
+    _controller.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     final String partner = ModalRoute.of(context).settings.arguments;
@@ -38,6 +46,7 @@ class ConversationView extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8),
                   child: TextField(
+                    controller: _controller,
                     style: TextStyle(fontSize: 16),
                     decoration: InputDecoration(
                       hintText: 'Aa',
@@ -65,7 +74,7 @@ class ConversationView extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.send),
-                onPressed: () => null,
+                onPressed: () => _send(context),
               )
             ],
           )

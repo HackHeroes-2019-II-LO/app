@@ -1,9 +1,12 @@
 import 'dart:collection';
 
+import 'package:flutter/material.dart';
 import 'package:hack_heroes/types.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class AppModel extends Model {
+  static AppModel of(BuildContext context) => ScopedModel.of<AppModel>(context);
+
   final List<Conversation> _convos = [
     Conversation(
       partner: 'Osoba 1',
@@ -44,4 +47,15 @@ class AppModel extends Model {
 
   Conversation convoWith(String partner) =>
       _convos.firstWhere((conv) => conv.partner == partner);
+
+  void addMessage(String partner, String content) {
+    _convos.firstWhere((conv) => conv.partner == partner).messages.add(
+          Message(
+            content: content,
+            isOwned: true,
+          ),
+        );
+
+    notifyListeners();
+  }
 }
