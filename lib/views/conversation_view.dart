@@ -43,52 +43,55 @@ class ConversationView extends StatelessWidget {
               },
             ),
           ),
-          Row(
-            children: <Widget>[
-              Flexible(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: TextField(
-                    controller: _textController,
-                    textInputAction: TextInputAction.go,
-                    keyboardType: TextInputType.text,
-                    maxLines: 1,
-                    onEditingComplete: () => _send(context),
-                    style: TextStyle(fontSize: 16),
-                    decoration: InputDecoration(
-                      hintText: 'Aa',
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      filled: true,
-                      fillColor: Theme.of(context).cardColor,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                          width: 1,
-                          color: Theme.of(context).textTheme.display1.color,
+          Container(
+            color: Theme.of(context).cardColor,
+            child: Row(
+              children: <Widget>[
+                Flexible(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: TextField(
+                      controller: _textController,
+                      textInputAction: TextInputAction.go,
+                      keyboardType: TextInputType.text,
+                      maxLines: 1,
+                      onEditingComplete: () => _send(context),
+                      style: TextStyle(fontSize: 16),
+                      decoration: InputDecoration(
+                        hintText: 'Aa',
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        filled: true,
+                        fillColor: Theme.of(context).scaffoldBackgroundColor,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: Theme.of(context).textTheme.display1.color,
+                          ),
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                          width: 1,
-                          color: Theme.of(context).accentColor,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: Theme.of(context).accentColor,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              AnimatedBuilder(
-                animation: _textController,
-                builder: (context, child) => IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: _textController.text.length > 0
-                      ? () => _send(context)
-                      : null,
+                AnimatedBuilder(
+                  animation: _textController,
+                  builder: (context, child) => IconButton(
+                    icon: Icon(Icons.send),
+                    onPressed: _textController.text.length > 0
+                        ? () => _send(context)
+                        : null,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           )
         ],
       ),

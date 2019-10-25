@@ -12,7 +12,7 @@ class ChatBubble extends StatelessWidget {
             message.isOwned ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               boxShadow: [
