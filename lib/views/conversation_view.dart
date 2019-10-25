@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hack_heroes/model.dart';
+import 'package:hack_heroes/types.dart';
 import 'package:hack_heroes/widgets/app_bar.dart';
 import 'package:hack_heroes/widgets/chat_bubble.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -17,10 +18,10 @@ class ConversationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String partner = ModalRoute.of(context).settings.arguments;
+    final Person partner = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: ToDoAppBar(
-        texts: [partner],
+        texts: [partner.name],
         center: false,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),

@@ -19,13 +19,14 @@ class ChatViewPerson extends StatelessWidget {
                 height: 8,
               ),
         ListTile(
-          leading: Icon(
-            Icons.account_circle,
-            size: 48,
-            color: Theme.of(context).textTheme.display1.color,
+          leading: CircleAvatar(
+            radius: 24,
+            backgroundImage: NetworkImage(
+              'https://i.pravatar.cc/64?u=${convo.partner.id}',
+            ),
           ),
           title: Text(
-            convo.partner,
+            convo.partner.name,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           subtitle: Row(
@@ -33,7 +34,7 @@ class ChatViewPerson extends StatelessWidget {
             children: <Widget>[
               Flexible(
                 child: Text(
-                  '${convo.messages.last.isOwned ? 'Ja' : convo.partner}: ${convo.messages.last.content}',
+                  '${convo.messages.last.isOwned ? 'Ja' : convo.partner.name}: ${convo.messages.last.content}',
                   overflow: TextOverflow.fade,
                   maxLines: 1,
                   softWrap: false,

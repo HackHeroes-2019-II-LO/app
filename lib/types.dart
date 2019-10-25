@@ -17,7 +17,7 @@ class Message {
 }
 
 class Conversation {
-  final String partner;
+  final Person partner;
   final List<Message> messages;
   DateTime lastTimestamp;
 

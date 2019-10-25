@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage>
     // HPTabType.mapView,
   ];
 
-  HPTabType _currentTab = _tabs[0];
+  HPTabType _currentTab = _tabs[1];
   final PageController _pageController = PageController();
   AnimationController _sheetAnimation;
 
@@ -53,11 +53,11 @@ class _HomePageState extends State<HomePage>
         appBar: ToDoAppBar(
           texts: _tabs.map(tabToTitle).toList(),
           selected: _tabs.indexOf(_currentTab),
-          leading: IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () =>
-                Navigator.of(context).pushNamed(AppRoutes.settings),
-          ),
+          // leading: IconButton(
+          //   icon: Icon(Icons.settings),
+          //   onPressed: () =>
+          //       Navigator.of(context).pushNamed(AppRoutes.settings),
+          // ),
         ),
         body: PageView(
           controller: _pageController,

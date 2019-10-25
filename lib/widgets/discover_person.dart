@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hack_heroes/model.dart';
 import 'package:hack_heroes/types.dart';
 
 class DiscoverPerson extends StatelessWidget {
   final Person person;
 
   const DiscoverPerson({@required this.person}) : assert(person != null);
+
+  void _chat(BuildContext context) {
+    AppModel.of(context).addFriend(person.id);
+    Navigator.of(context).pushNamed(
+      AppRoutes.conversation,
+      arguments: person,
+    );
+  }
 
   @override
   Widget build(BuildContext context) => Card(
@@ -42,7 +51,7 @@ class DiscoverPerson extends StatelessWidget {
                     icon: Icon(
                       Icons.person_add,
                     ),
-                    onPressed: () => null,
+                    onPressed: () => _chat(context),
                   ),
                 ),
               )
